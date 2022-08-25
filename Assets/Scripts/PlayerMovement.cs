@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
                 string score = scoreText.text;
                 score = score.Substring(7);
                 int scoreNum = int.Parse(score);
-                scoreNum = (int) transform.position.y * 100;
+                scoreNum = (int) (transform.position.y + 3.5) * 100;
                 scoreText.text = "Score: " + scoreNum.ToString();
             }
         }
