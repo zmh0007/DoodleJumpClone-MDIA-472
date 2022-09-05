@@ -21,4 +21,9 @@ public class Platform : MonoBehaviour
             }
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(this.gameObject);
+    }
 }
