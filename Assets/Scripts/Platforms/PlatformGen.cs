@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlatformGen : MonoBehaviour
 {
     public GameObject platform;
-    public int numberOfPlatforms;
+    public GameObject Player;
+    public int numberOfPlatforms = 0;
+    public int platformsDeleted = 0;
     public float levelWidth = 3f;
     public float minY = .4f;
     public float MaxY = 1.5f;
@@ -13,13 +15,21 @@ public class PlatformGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       GeneratePlatforms();
+    }
+    public void GeneratePlatforms()
+    {
         Vector3 spawnPosition = new Vector3();
 
-        for(int i = 0; i < numberOfPlatforms; i++)
+        for (int i = 0; i < numberOfPlatforms; i++)
         {
-            spawnPosition.y += Random.Range(minY, MaxY);
-            spawnPosition.x = Random.Range(-levelWidth,levelWidth);
-            Instantiate(platform, spawnPosition, Quaternion.identity);
+            spawnPosition.y += Random.Range(Player.transform.localPosition.y + minY, Player.transform.localPosition.y + MaxY);
+            spawnPosition.x = Random.Range(-levelWidth, levelWidth);
+
+            if (platform != null)
+            {
+                Instantiate(platform, spawnPosition, Quaternion.identity);
+            }
         }
     }
 }
