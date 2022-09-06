@@ -14,22 +14,11 @@ public class Platform : MonoBehaviour
     {
         Death = GameObject.Find("PlatformDestroyer");
         Player = GameObject.Find("Player");
-        generation = GetComponent<PlatformGen>();
     }
 
     private void Update()
     {
-        if (transform.position.y < Death.transform.position.y)
-        {
-            generation.platformsDeleted++;
-            Destroy(gameObject);
-        }
-
-        if(generation.platformsDeleted >= (generation.numberOfPlatforms/4))
-        {
-            generation.platformsDeleted = 0;
-            generation.GeneratePlatforms();
-        }
+        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -46,5 +35,12 @@ public class Platform : MonoBehaviour
             }
         }
     }
-        // Distance between camera and platform
+
+    private void OnBecameInvisible()
+    {
+        Debug.Log("Invisible");
+        transform.position += Vector3.up * 10;
+        transform.position = new Vector3(Random.Range(-5f,5f),transform.position.y,0);
+       
+    }
 }
