@@ -5,22 +5,7 @@ using TMPro;
 
 public class Platform : MonoBehaviour
 {
-    public float jumpForce = 120f;
-    public PlatformGen generation;
-    public GameObject Death;
-    public GameObject Player;
-
-    private void Awake()
-    {
-        Death = GameObject.Find("PlatformDestroyer");
-        Player = GameObject.Find("Player");
-    }
-
-    private void Update()
-    {
-        
-    }
-
+    public float jumpForce = 150f;
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.relativeVelocity.y <= 0f)
@@ -35,11 +20,10 @@ public class Platform : MonoBehaviour
             }
         }
     }
-
     private void OnBecameInvisible()
     {
         Debug.Log("Invisible");
-        transform.position += Vector3.up * 10;
+        transform.position += Vector3.up * 5;
         transform.position = new Vector3(Random.Range(-5f,5f),transform.position.y,0);
        
     }
