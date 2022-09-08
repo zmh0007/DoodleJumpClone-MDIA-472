@@ -100,9 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 18
-  generation: {fileID: 0}
-  Death: {fileID: 0}
-  Player: {fileID: 0}
 --- !u!251 &3446450795080860363
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -138,8 +135,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.5000001, y: 0}
-  - {x: 0.5000001, y: 0}
+  - {x: -1.0957829, y: 0}
+  - {x: 1.0895116, y: 0}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
