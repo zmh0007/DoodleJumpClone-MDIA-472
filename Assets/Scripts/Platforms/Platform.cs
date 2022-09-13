@@ -22,7 +22,6 @@ public class Platform : MonoBehaviour
     }
     private void OnBecameInvisible()
     {
-        Debug.Log("Invisible");
         transform.position += Vector3.up * 5;
         transform.position = new Vector3(Random.Range(-5f,5f),transform.position.y,0);
        
