@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public GameObject GameOverScreen;
     public float currentHighestHeight = 0;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI gameOverScore;
 
     private void Start()
     {
@@ -54,6 +55,8 @@ public class Player : MonoBehaviour
         {
             print("GAME OVER");
             GameOverScreen.SetActive(true);
+            gameOverScore.text = "High " + scoreText.text; 
+            scoreText.gameObject.SetActive(false);
             Destroy(gameObject);
         }
     }

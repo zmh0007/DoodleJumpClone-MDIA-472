@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class RedPlatform : MonoBehaviour
 {
-    public float jumpForce = 150f;
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (gameObject.tag == "RedPlatform")
         {
-            Destroy(gameObject);
+            transform.position += Vector3.up * 5;
+            transform.position = new Vector3(Random.Range(-6f, 6f), transform.position.y, 0);
         }
     }
     private void OnBecameInvisible()
     {
         transform.position += Vector3.up * 5;
-        transform.position = new Vector3(Random.Range(-5f, 5f), transform.position.y, 0);
+        transform.position = new Vector3(Random.Range(-6f, 6f), transform.position.y, 0);
 
     }
 }
