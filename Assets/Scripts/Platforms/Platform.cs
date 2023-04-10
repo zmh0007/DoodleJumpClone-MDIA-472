@@ -6,6 +6,7 @@ using TMPro;
 public class Platform : MonoBehaviour
 {
     public float jumpForce = 150f;
+    public LayerMask platformMask;
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.relativeVelocity.y <= 0f)
@@ -23,7 +24,12 @@ public class Platform : MonoBehaviour
     private void OnBecameInvisible()
     {
         transform.position += Vector3.up * 5;
-        transform.position = new Vector3(Random.Range(-6f,6f),transform.position.y,0);
+        transform.position = new Vector3(Random.Range(-7.5f,7.5f),transform.position.y,0);
+
+        if (Physics.CheckSphere(transform.position,1, platformMask))
+        {
+            transform.position += Vector3.up * (float) 0.5;
+        }
        
     }
 }

@@ -9,4 +9,9 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main Level");
     }
+
+    public void OnQuitButton()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
 }

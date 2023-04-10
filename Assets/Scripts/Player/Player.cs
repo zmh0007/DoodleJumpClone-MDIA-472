@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody2D>();   
     }
 
@@ -55,6 +56,7 @@ public class Player : MonoBehaviour
         {
             print("GAME OVER");
             GameOverScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
             gameOverScore.text = "High " + scoreText.text; 
             scoreText.gameObject.SetActive(false);
             Destroy(gameObject);
